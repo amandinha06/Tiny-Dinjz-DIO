@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgqr5tjur0a2r"]
+
+[ext_resource type="Script" path="res://UI/game_ui.gd" id="1_cpuss"]
+[ext_resource type="Texture2D" uid="uid://dwqfrnsfngogj" path="res://Addons/Tiny Swords/Tiny Swords/UI/Ribbons/Ribbon_Blue_3Slides.png" id="2_ec2yf"]
+[ext_resource type="Texture2D" uid="uid://db1rtvqao5wst" path="res://Addons/Tiny Swords/Tiny Swords/Resources/Resources/M_Idle_(NoShadow).png" id="3_rihrx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qeqni"]
+texture = ExtResource("2_ec2yf")
+texture_margin_left = 48.0
+texture_margin_top = 16.0
+texture_margin_right = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4fq"]
+atlas = ExtResource("3_rihrx")
+region = Rect2(36, 56, 60, 40)
+
+[sub_resource type="SystemFont" id="SystemFont_k2kwr"]
+font_names = PackedStringArray("Impact")
+font_weight = 100
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dngto"]
+font = SubResource("SystemFont_k2kwr")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0.337255, 0.337255, 0.337255, 0)
+
+[sub_resource type="SystemFont" id="SystemFont_1t4oo"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp03g"]
+font = SubResource("SystemFont_1t4oo")
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0.392157, 0.392157, 0.392157, 0)
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_cpuss")
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -228.0
+offset_top = 12.0
+offset_right = -19.0
+offset_bottom = 113.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qeqni")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = SubResource("AtlasTexture_1w4fq")
+
+[node name="MeatLabel" type="Label" parent="PanelContainer2/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "50 
+"
+label_settings = SubResource("LabelSettings_dngto")
+
+[node name="TimerLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_top = 26.0
+offset_right = 63.0
+offset_bottom = 58.0
+grow_horizontal = 2
+text = "08:50"
+label_settings = SubResource("LabelSettings_jp03g")
+horizontal_alignment = 1
+vertical_alignment = 1
